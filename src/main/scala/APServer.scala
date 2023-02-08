@@ -15,7 +15,8 @@ final case class APServer():
 
   val apApp = Router(
     "/" -> bannerService,
-    "/.well-known/webfinger" -> Webfinger.webfingerService
+    "/.well-known/webfinger" -> Webfinger.webfingerService,
+    "/" -> Redirection.redirectionService
   ).orNotFound
   val server = EmberServerBuilder
     .default[IO]
